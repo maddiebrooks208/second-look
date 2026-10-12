@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Second Look: check a client message before you reply</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline'; connect-src 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; form-action 'none'">
 <style>
  :root{--bg:#f6f5f2;--card:#fff;--ink:#1d1f24;--mut:#5b6170;--stop:#c62828;--care:#b26a00;--ok:#2e7d32;--line:#e2e0da}
  *{box-sizing:border-box} body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
@@ -39,7 +39,7 @@
 <h2 style="margin-top:0">What this demo does, and what the full app adds</h2>
 <p>This page is a JavaScript port of Second Look's rule engine: the same 8 rules, generated from the Python source, and checked to give the same verdict, rules and matched words on all 20 example messages. The rules alone decide the verdict: any high-severity hit means <b class="Stop">Stop</b>; one medium hit, or two, means <b class="Be">Be careful</b>; none means <b class="Looks">Looks OK</b>. The reply shown is the fixed safe reply.</p>
 <p>The <a href="https://github.com/maddiebrooks208/second-look">full command-line app</a> also runs <b>Gemma 3 1B</b> locally (llama.cpp, on CPU) to write a plain-language explanation and, for normal messages, a reply draft. Every model sentence passes a guard that rejects anything telling you to pay, buy, click, share details or move off-platform; if it trips, the fixed text is used. In our logged runs Gemma's explanations were usually kept, and its replies to scam messages were always rejected.</p>
-<p><img src="https://raw.githubusercontent.com/maddiebrooks208/second-look/main/demo/09-whatsapp-direct.png" alt="Terminal screenshot of the full app with the Gemma explanation"></p>
+<p><img src="cli-screenshot.png" alt="Terminal screenshot of the full app with the Gemma explanation"></p>
 <p class="mut">More: <a href="https://github.com/maddiebrooks208/second-look/tree/main/demo">demo screenshots and recording</a> · <a href="https://github.com/maddiebrooks208/second-look/tree/main/logs">real model run logs</a> · <a href="https://github.com/maddiebrooks208/second-look/blob/main/second_look/rules.py">the rules</a></p>
 </div>
 

@@ -9,10 +9,18 @@
     $('samples').appendChild(b);
   }
   function highlight(text, hits) {
-    let html = esc(text);
-    const words = [...new Set(hits.flatMap(h => h.evidence))].sort((a, b) => b.length - a.length);
-    for (const w of words) html = html.split(esc(w)).join('<mark>' + esc(w) + '</mark>');
-    return html;
+    // mark the union of all matched ranges (matches can overlap)
+    const marks = new Array(text.length).fill(false);
+    for (const h of hits) for (const pat of h.rule.patterns) {
+      const re = new RegExp(pat, 'gi'); let m;
+      while ((m = re.exec(text)) !== null) { for (let i = m.index; i < m.index + m[0].length; i++) marks[i] = true; if (!m[0].length) re.lastIndex++; }
+    }
+    let out = '', on = false;
+    for (let i = 0; i < text.length; i++) {
+      if (marks[i] !== on) { out += marks[i] ? '<mark>' : '</mark>'; on = marks[i]; }
+      out += esc(text[i]);
+    }
+    return out + (on ? '</mark>' : '');
   }
   function run() {
     const text = $('msg').value.trim();
