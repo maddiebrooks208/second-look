@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Second Look: check a client message before you reply</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com; style-src 'self' 'unsafe-inline'; connect-src 'none'; form-action 'none'">
+<style>
+ :root{--bg:#f6f5f2;--card:#fff;--ink:#1d1f24;--mut:#5b6170;--stop:#c62828;--care:#b26a00;--ok:#2e7d32;--line:#e2e0da}
+ *{box-sizing:border-box} body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+ main{max-width:860px;margin:0 auto;padding:28px 18px 60px} h1{margin:0 0 4px;font-size:30px} .sub{color:var(--mut);margin:0 0 14px}
+ .privacy{background:#e8f3ea;border:1px solid #b8dcc0;border-radius:8px;padding:10px 14px;font-size:15px;margin-bottom:18px}
+ textarea{width:100%;min-height:150px;padding:12px;font-family:inherit;font-size:15px;line-height:1.5;border:1px solid var(--line);border-radius:8px;resize:vertical}
+ button{font:inherit;cursor:pointer;border-radius:6px;border:1px solid var(--line);background:#fff;padding:6px 10px}
+ .primary{background:var(--ink);color:#fff;border-color:var(--ink);padding:9px 18px;font-weight:600}
+ .samples{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 16px} .samples button{font-size:13px}
+ .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-top:18px}
+ .verdict{font-size:24px;font-weight:700;margin:0 0 10px} .Stop{color:var(--stop)} .Be{color:var(--care)} .Looks{color:var(--ok)}
+ .hit{border-left:4px solid var(--care);padding:6px 12px;margin:10px 0;background:#fafafa} .hit.high{border-color:var(--stop)}
+ .tag{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)} mark{background:#ffe9a8;padding:0 2px}
+ .reply{background:#f1f4f9;border-radius:8px;padding:12px 14px} small,.mut{color:var(--mut)} a{color:#1a56b0}
+ footer{margin-top:36px;font-size:14px;color:var(--mut)} img{max-width:100%;border-radius:8px;border:1px solid var(--line)}
+</style>
+</head>
+<body><main>
+<h1>Second Look</h1>
+<p class="sub">Paste a client message, job offer or payment email. Get a verdict before you reply.</p>
+<div class="privacy"><strong>Runs entirely in your browser.</strong> Nothing you paste is sent anywhere: this page has no server, no analytics and no network requests after it loads (its security policy blocks them). Close the tab and it's gone.</div>
+
+<label for="msg"><strong>Message</strong></label>
+<textarea id="msg" placeholder="Paste the message here…"></textarea>
+<p><button class="primary" id="go">Check it</button> <button id="clear">Clear</button></p>
+<div class="tag">Try a sample (synthetic messages from the repo's test set)</div>
+<div class="samples" id="samples"></div>
+
+<div id="out"></div>
+
+<div class="card">
+<h2 style="margin-top:0">What this demo does, and what the full app adds</h2>
+<p>This page is a JavaScript port of Second Look's rule engine: the same 8 rules, generated from the Python source, and checked to give the same verdict, rules and matched words on all 20 example messages. The rules alone decide the verdict: any high-severity hit means <b class="Stop">Stop</b>; one medium hit, or two, means <b class="Be">Be careful</b>; none means <b class="Looks">Looks OK</b>. The reply shown is the fixed safe reply.</p>
+<p>The <a href="https://github.com/maddiebrooks208/second-look">full command-line app</a> also runs <b>Gemma 3 1B</b> locally (llama.cpp, on CPU) to write a plain-language explanation and, for normal messages, a reply draft. Every model sentence passes a guard that rejects anything telling you to pay, buy, click, share details or move off-platform; if it trips, the fixed text is used. In our logged runs Gemma's explanations were usually kept, and its replies to scam messages were always rejected.</p>
+<p><img src="https://raw.githubusercontent.com/maddiebrooks208/second-look/main/demo/09-whatsapp-direct.png" alt="Terminal screenshot of the full app with the Gemma explanation"></p>
+<p class="mut">More: <a href="https://github.com/maddiebrooks208/second-look/tree/main/demo">demo screenshots and recording</a> · <a href="https://github.com/maddiebrooks208/second-look/tree/main/logs">real model run logs</a> · <a href="https://github.com/maddiebrooks208/second-look/blob/main/second_look/rules.py">the rules</a></p>
+</div>
+
+<footer>A pattern checker, not a guarantee: a message with no flags can still be a scam. Keep payment on the platform. MIT licensed · built for the DEV Hacktoberfest Open-Source AI Challenge, Week 2 (Side Hustle), with AI coding assistance.</footer>
+</main>
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body></html>
