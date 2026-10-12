@@ -1,0 +1,22 @@
+{
+  "01-reverse-invoice-paypal": ["Stop", ["reverse-invoice"]],
+  "02-starter-kit": ["Stop", ["pay-to-start"]],
+  "03-overpay-check": ["Stop", ["overpay-refund"]],
+  "04-gift-cards": ["Stop", ["odd-payment"]],
+  "05-crypto-fee": ["Stop", ["odd-payment"]],
+  "06-bank-login": ["Stop", ["share-secrets"]],
+  "07-otp-code": ["Stop", ["share-secrets"]],
+  "08-telegram-urgent": ["Be careful", ["off-platform", "pressure"]],
+  "09-whatsapp-direct": ["Be careful", ["off-platform"]],
+  "10-free-test-task": ["Be careful", ["big-free-test"]],
+  "11-urgent-only": ["Be careful", ["pressure"]],
+  "12-legit-candles": ["Looks OK", []],
+  "13-legit-etsy-buyer": ["Looks OK", []],
+  "14-legit-retainer": ["Looks OK", []],
+  "15-legit-paid-trial": ["Looks OK", []],
+  "16-legit-revision": ["Looks OK", []],
+  "17-marketplace-overpay": ["Stop", ["overpay-refund"]],
+  "18-equipment-checks": ["Stop", ["pay-to-start"]],
+  "19-verification-fee": ["Stop", ["reverse-invoice"]],
+  "20-off-platform-email": ["Be careful", ["off-platform"]]
+}

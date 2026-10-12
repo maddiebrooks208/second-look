@@ -2,13 +2,20 @@
 name = "second-look"
 version = "0.1.0"
 description = "Local-first scam check for freelance client messages, with plain-code rules and a local open-weight model."
-license = { text = "MIT" }
+license = "MIT"
 requires-python = ">=3.10"
 dependencies = []
 
 [project.optional-dependencies]
 model = ["llama-cpp-python>=0.2"]
-dev = ["pytest"]
+test = ["pytest"]
 
 [project.scripts]
 second-look = "second_look.cli:main"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["second_look"]

@@ -1,0 +1,15 @@
+$ second-look check examples/01-reverse-invoice-paypal.txt
+SECOND LOOK: STOP
+  [high] They want you to pay an invoice
+      matched: 'settle the invoice', 'invoice we sent to your PayPal', 'onboarding fee'
+
+Why:
+  Verdict: Stop. Patterns found: They want you to pay an invoice. A real client pays
+  you, not the other way round.
+
+Suggested reply:
+  Thanks for reaching out. I keep all work and payment on the platform, through a funded
+  contract or milestone. I don't cover any fees to start a job, and I keep my account
+  details private. If you'd like to work together, I'm happy to continue there.
+
+(gemma-3-1b-it-Q4_K_M.gguf: explanation=fallback, reply=fallback; guard tripped: explanation calls a flagged pattern normal; guard tripped: reply doesn't keep things on the platform. The verdict comes from plain rules, not the model.)

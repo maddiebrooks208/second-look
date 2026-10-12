@@ -1,0 +1,12 @@
+$ second-look check examples/12-legit-candles.txt
+SECOND LOOK: LOOKS OK
+  no known payment-trap patterns found
+
+Why:
+  Verdict: Looks OK. The client is requesting a significant amount of content creation,
+  and none of the known trap patterns indicated a potential risk.
+
+Suggested reply:
+  Okay, I can certainly handle that. Let’s see what I can do.
+
+(gemma-3-1b-it-Q4_K_M.gguf: explanation=model, reply=model. The verdict comes from plain rules, not the model.)

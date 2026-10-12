@@ -1,0 +1,13 @@
+{"version": 2, "width": 96, "height": 40, "timestamp": 1791832188, "env": {"SHELL": null, "TERM": "xterm-256color"}}
+[0.005603, "o", "$ second-look check examples/01-reverse-invoice-paypal.txt\r\n"]
+[5.564709, "o", "SECOND LOOK: STOP\r\n  [high] They want you to pay an invoice\r\n      matched: 'settle the invoice', 'invoice we sent to your PayPal', 'onboarding fee'\r\n\r\nWhy:\r\n  Verdict: Stop. Patterns found: They want you to pay an invoice. A real client pays\r\n  you, not the other way round.\r\n\r\nSuggested reply:\r\n  Thanks for reaching out. I keep all work and payment on the platform, through a funded\r\n  contract or milestone. I don't cover any fees to start a job, and I keep my account\r\n  details private. If you'd like to work together, I'm happy to continue there.\r\n\r\n(gemma-3-1b-it-Q4_K_M.gguf: explanation=fallback, reply=fallback; guard tripped: explanation calls a flagged pattern normal; guard tripped: reply doesn't keep things on the platform. The verdict comes from plain rules, not the model.)\r\n"]
+[5.669976, "o", "\r\n$ second-look check examples/09-whatsapp-direct.txt\r\n"]
+[10.850727, "o", "SECOND LOOK: BE CAREFUL\r\n  [medium] Move off the platform before escrow\r\n"]
+[10.850975, "o", "      matched: 'WhatsApp', 'pay you directly'\r\n\r\nWhy:\r\n  Verdict: Be careful. The client is attempting to bypass the platform’s payment\r\n  protection by communicating through a different channel.\r\n\r\nSuggested reply:\r\n  Thanks for the message. Before I start, I'd like to keep our chat and the contract on\r\n  the platform with a funded milestone. Happy to go from there."]
+[10.851014, "o", "\r\n\r\n(gemma-3-1b-it-Q4_K_M.gguf: explanation=model, reply=fallback; guard tripped: moves the chat off-platform: 'WhatsApp'. The verdict comes from plain rules, not the model.)"]
+[10.853173, "o", "\r\n"]
+[10.961872, "o", "\r\n$ second-look check examples/12-legit-candles.txt\r\n"]
+[15.976075, "o", "SECOND LOOK: LOOKS OK\r\n  no known payment-trap patterns found\r\n"]
+[15.976254, "o", "\r\nWhy:\r\n  Verdict: Looks OK. The client is requesting a significant amount of content creation,\r\n  and none of the known trap patterns indicated a potential risk.\r\n\r\nSuggested reply:\r\n  Okay, I can certainly handle that. Let’s see what I can do.\r\n\r\n(gemma-3-1b-it-Q4_K_M.gguf: explanation=model, reply=model. The verdict comes from plain rules, not the model.)"]
+[15.978101, "o", "\r\n"]
+[16.090358, "o", "\r\n"]

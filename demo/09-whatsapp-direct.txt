@@ -1,0 +1,14 @@
+$ second-look check examples/09-whatsapp-direct.txt
+SECOND LOOK: BE CAREFUL
+  [medium] Move off the platform before escrow
+      matched: 'WhatsApp', 'pay you directly'
+
+Why:
+  Verdict: Be careful. The client is attempting to bypass the platform’s payment
+  protection by communicating through a different channel.
+
+Suggested reply:
+  Thanks for the message. Before I start, I'd like to keep our chat and the contract on
+  the platform with a funded milestone. Happy to go from there.
+
+(gemma-3-1b-it-Q4_K_M.gguf: explanation=model, reply=fallback; guard tripped: moves the chat off-platform: 'WhatsApp'. The verdict comes from plain rules, not the model.)
